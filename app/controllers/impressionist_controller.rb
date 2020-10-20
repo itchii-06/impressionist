@@ -64,7 +64,7 @@ module ImpressionistController
         :controller_name => controller_name,
         :action_name => action_name,
         :user_id => user_id,
-        :school_id => query_params[:school_id],
+        :school_id => user_id.present? ? current_student.school.id : nil,
         :request_hash => @impressionist_hash,
         :session_hash => session_hash,
         :ip_address => request.remote_ip,
